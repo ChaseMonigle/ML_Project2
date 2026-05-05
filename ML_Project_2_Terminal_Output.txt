@@ -109,6 +109,14 @@ Action            0.021235
 num_writers       0.012063
 dtype: float64
 
+         averageRating  log_votes  runtimeMinutes  movie_age
+cluster                                                     
+0             6.409718   4.074665       88.000221  15.828335
+1             6.284893   4.119465       85.984421  75.181273
+2             6.424808   7.703740      111.533969  24.211804
+3             4.168076   4.486573       90.985706  25.581894
+
+
 Done.
 Saved files:
 - elbow_plot.png
