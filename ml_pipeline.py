@@ -296,7 +296,7 @@ def untuned_rfClassifier(X_train,y_clf_train,X_test,y_clf_test):
     plt.plot([0, 1], [0, 1], linestyle="--")
     plt.xlabel("False Positive Rate")
     plt.ylabel("True Positive Rate")
-    plt.title("ROC Curve")
+    plt.title("ROC Curve (Untuned Random Forest)")
     plt.legend()
 
     # PR subplot
@@ -357,7 +357,7 @@ def tuned_rfClassifer(X_train,y_clf_train,y_clf_test,X_test,X,y_clf):
     plt.plot([0, 1], [0, 1], linestyle="--")
     plt.xlabel("False Positive Rate")
     plt.ylabel("True Positive Rate")
-    plt.title("ROC Curve")
+    plt.title("ROC Curve (Tuned Random Forest)")
     plt.legend()
 
     # PR subplot
@@ -365,7 +365,7 @@ def tuned_rfClassifer(X_train,y_clf_train,y_clf_test,X_test,X,y_clf):
     plt.plot(recall, precision, label=f"AP = {ap_score:.2f}")
     plt.xlabel("Recall")
     plt.ylabel("Precision")
-    plt.title("Precision-Recall Curve")
+    plt.title("Precision-Recall Curve (Tuned Random Forest)")
     plt.legend()
 
     plt.tight_layout()
@@ -480,6 +480,15 @@ plt.savefig("feature_importance.png")
 plt.show()
 plt.close()
 
+
+cluster_summary = df.groupby("cluster")[[
+    "averageRating",
+    "log_votes",
+    "runtimeMinutes",
+    "movie_age"
+]].mean()
+
+print(cluster_summary)
 # Save Dataset With Clusters
 # Save updated dataset with cluster labels for further analysis
 df.to_csv("imdb_movies_with_clusters.csv", index=False)
